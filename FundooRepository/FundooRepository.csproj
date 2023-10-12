@@ -13,4 +13,8 @@
     <ProjectReference Include="..\FundooModel\FundooModel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="IRepository\" />
+  </ItemGroup>
+
 </Project>

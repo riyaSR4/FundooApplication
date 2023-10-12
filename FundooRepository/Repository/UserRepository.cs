@@ -1,5 +1,6 @@
 ﻿using FundooModel.User;
 using FundooRepository.Context;
+using FundooRepository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FundooRepository.Repository
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         public readonly UserDbContext context;
         public UserRepository(UserDbContext context)
@@ -45,11 +46,12 @@ namespace FundooRepository.Repository
             if(reset.NewPassword.Equals(reset.ConfirmPassword))
             {
                 var input = this.context.Register.Where(x => x.Email.Equals(reset.Email)).FirstOrDefault();
-                input.Password = reset.NewPassword;
-                this.context.Register.Update(input);
-                var result = this.context.SaveChangesAsync();
-                if(result != null)
+                if (input != null)
                 {
+                    var password = EncryptPassword(reset.NewPassword);
+                    input.Password = password;
+                    this.context.Register.Update(input);
+                    var result = this.context.SaveChangesAsync();
                     return input;
                 }
                 return null;
