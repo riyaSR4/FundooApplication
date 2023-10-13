@@ -1,0 +1,2 @@
+2023-10-13 17:14:21.1558|INFO|Utility.Nlog|Password Encrypted
+2023-10-13 17:14:22.2724|INFO|Utility.Nlog|User Registered
