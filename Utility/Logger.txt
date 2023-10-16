@@ -1,2 +1,59 @@
 2023-10-13 17:14:21.1558|INFO|Utility.Nlog|Password Encrypted
 2023-10-13 17:14:22.2724|INFO|Utility.Nlog|User Registered
+2023-10-14 09:53:42.7531|INFO|Utility.Nlog|Password Encrypted
+2023-10-14 09:53:43.8354|INFO|Utility.Nlog|User Registered
+2023-10-14 09:54:29.7833|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 09:54:29.7833|ERROR|Utility.Nlog|User not Logged In
+2023-10-14 09:55:20.9597|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 09:55:20.9597|ERROR|Utility.Nlog|User not Logged In
+2023-10-14 09:59:30.3777|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 09:59:30.3777|ERROR|Utility.Nlog|User not Logged In
+2023-10-14 10:08:19.5157|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 10:08:19.5157|INFO|Utility.Nlog|User Logged In
+2023-10-14 10:59:19.9965|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 10:59:20.0002|INFO|Utility.Nlog|User Logged In
+2023-10-14 10:59:20.2007|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 10:59:58.1250|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 10:59:58.1250|INFO|Utility.Nlog|User Logged In
+2023-10-14 10:59:58.1731|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 11:02:10.0714|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:02:19.3960|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:05:31.6660|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:05:31.6703|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:05:31.8754|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 11:10:02.4180|INFO|Utility.Nlog|Password Encrypted
+2023-10-14 11:10:02.5403|INFO|Utility.Nlog|User Registered
+2023-10-14 11:10:43.0955|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:10:43.0955|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:10:43.1446|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 11:16:34.0243|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:16:34.0282|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:16:34.2458|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 11:20:04.6155|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:20:04.6155|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:20:04.8959|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 11:22:02.6511|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:22:02.6553|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:22:02.9361|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 11:23:49.3344|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:23:49.3344|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:23:49.6107|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 11:26:15.1722|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:26:15.1722|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:26:15.4417|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 11:27:53.3912|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:27:53.3912|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:29:28.6945|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 11:41:10.4587|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:41:10.4587|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:41:18.8860|ERROR|Utility.Nlog|Error in User Login
+2023-10-14 11:42:45.9813|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:42:45.9813|INFO|Utility.Nlog|User Logged In
+2023-10-14 11:44:17.1891|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 11:44:17.1891|INFO|Utility.Nlog|User Logged In
+2023-10-14 12:21:41.1345|INFO|Utility.Nlog|Password Encrypted
+2023-10-14 12:21:41.9857|INFO|Utility.Nlog|User Registered
+2023-10-14 12:52:37.8765|INFO|Utility.Nlog|Password Encrypted
+2023-10-14 12:52:38.1688|INFO|Utility.Nlog|Password Reset Successful
+2023-10-14 12:53:26.2838|INFO|Utility.Nlog|Password Decrypted
+2023-10-14 12:53:26.2838|INFO|Utility.Nlog|User Logged In

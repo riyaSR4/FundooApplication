@@ -1,4 +1,5 @@
-﻿using FundooModel.User;
+﻿using FundooModel.Notes;
+using FundooModel.User;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,5 +15,6 @@ namespace FundooRepository.Context
 
         }
         public DbSet<Register> Register { get; set; }
+        public DbSet<Note> Notes { get; set; }
     }
 }

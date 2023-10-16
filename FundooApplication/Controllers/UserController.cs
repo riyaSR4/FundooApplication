@@ -1,5 +1,6 @@
 ﻿using FundooManager.IManager;
 using FundooModel.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Win32;
@@ -43,7 +44,7 @@ namespace FundooApplication.Controllers
                 var result = this.userManager.LoginUser(login);
                 if (result != null)
                 {
-                    return this.Ok(new { Status = true, Message = "User Login Successful", Data = login });
+                    return this.Ok(new { Status = true, Message = "User Login Successful", Data = result });
                 }
                 return this.BadRequest(new { Status = false, Message = "User Login Unsuccessful" });
             }
@@ -52,6 +53,7 @@ namespace FundooApplication.Controllers
                 return this.NotFound(new { Status = false, Message = ex.Message });
             }
         }
+        [Authorize]
         [HttpPut]
         [Route("ResetPassword")]
         public ActionResult UserResetPassword(ResetPassword resetPassword)
@@ -68,6 +70,30 @@ namespace FundooApplication.Controllers
             catch (Exception ex)
             {
                 return this.NotFound(new { Status = false, Message = ex.Message });
+            }
+        }
+        [HttpPost]
+        [Route("ForgetPassword")]
+
+        public ActionResult ForgetPassword(string email)
+        {
+            try
+            {
+                var resultLog = this.userManager.ForgetPassword(email);
+
+                if (resultLog != null)
+                {
+                    return Ok(new { success = true, message = "Reset Email Send" });
+                }
+                else
+                {
+                    return BadRequest(new { success = false, message = "Reset UnSuccessful" });
+                }
+
+            }
+            catch (System.Exception)
+            {
+                throw;
             }
         }
 

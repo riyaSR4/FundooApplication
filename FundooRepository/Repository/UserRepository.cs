@@ -1,9 +1,13 @@
 ﻿using FundooModel.User;
 using FundooRepository.Context;
 using FundooRepository.IRepository;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Utility;
@@ -13,10 +17,13 @@ namespace FundooRepository.Repository
     public class UserRepository : IUserRepository
     {
         public readonly UserDbContext context;
+        private readonly IConfiguration iconfiguration;
+        public string Key = "ankit@@sehrawat@@";
         Nlog nlog = new Nlog();
-        public UserRepository(UserDbContext context)
+        public UserRepository(UserDbContext context, IConfiguration iconfiguration)
         {
             this.context = context;
+            this.iconfiguration = iconfiguration;
         }
         public Task<int> RegisterUser(Register register)
         {
@@ -27,16 +34,18 @@ namespace FundooRepository.Repository
             nlog.LogInfo("User Registered");
             return result;
         }
-        public Register LoginUser(Login login)
+        public string LoginUser(Login login)
         {
             try
             {
                 var result = this.context.Register.Where(x => x.Email.Equals(login.Email)).FirstOrDefault();
                 var decryptPassword = DecryptPassword(result.Password);
-                if (decryptPassword.Equals(login.Password))
+               
+                if (result != null && decryptPassword.Equals(login.Password))
                 {
                     nlog.LogInfo("User Logged In");
-                    return result;
+                    var token = GenerateSecurityToken(result.Email, result.Id);
+                    return token;
                 }
                 nlog.LogError("User not Logged In");
                 return null;
@@ -44,7 +53,49 @@ namespace FundooRepository.Repository
             catch (Exception)
             {
                 nlog.LogError("Error in User Login");
-                return null;
+                //return null;
+                throw;
+            }
+        }
+
+        public string GenerateSecurityToken(string email, int userId)
+        {
+            var tokenhandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(this.iconfiguration[("JWT:Key")]);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim(ClaimTypes.Email, email),
+                    new Claim("Id",userId.ToString())
+                }),
+                Expires = DateTime.UtcNow.AddMinutes(30),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), 
+                SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenhandler.CreateToken(tokenDescriptor);
+            return tokenhandler.WriteToken(token);
+        }
+        public string ForgetPassword(string Email)
+        {
+            try
+            {
+                var emailcheck = this.context.Register.FirstOrDefault(x => x.Email == Email);
+                if (emailcheck != null)
+                {
+                    var token = GenerateSecurityToken(emailcheck.Email, emailcheck.Id);
+                    MSMQ msmq = new MSMQ();
+                    msmq.sendData2Queue(token);
+                    return token;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
         public Register ResetPassword(ResetPassword reset)

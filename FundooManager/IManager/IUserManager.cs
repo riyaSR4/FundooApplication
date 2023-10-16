@@ -9,7 +9,8 @@ namespace FundooManager.IManager
     public interface IUserManager
     {
         public Task<int> RegisterUser(Register register);
-        public Register LoginUser(Login login);
+        public string LoginUser(Login login);
         public Register ResetPassword(ResetPassword reset);
+        public string ForgetPassword(string Email);
     }
 }

@@ -22,7 +22,7 @@ namespace FundooManager.Manager
             var result = this.userRepository.RegisterUser(register);
             return result;
         }
-        public Register LoginUser(Login login)
+        public string LoginUser(Login login)
         {
             var result = this.userRepository.LoginUser(login);
             return result;
@@ -31,6 +31,17 @@ namespace FundooManager.Manager
         {
             var result = this.userRepository.ResetPassword(reset);
             return result;
+        }
+        public string ForgetPassword(string Email)
+        {
+            try
+            {
+                return this.userRepository.ForgetPassword(Email);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
