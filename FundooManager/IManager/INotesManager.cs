@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FundooRepository.IRepository
+namespace FundooManager.IManager
 {
-    public interface INotesRepository
+    public interface INotesManager
     {
         public Task<int> AddNotes(Note note);
         public Note ArchiveNotes(int noteId, string email);

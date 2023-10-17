@@ -57,3 +57,5 @@
 2023-10-14 12:52:38.1688|INFO|Utility.Nlog|Password Reset Successful
 2023-10-14 12:53:26.2838|INFO|Utility.Nlog|Password Decrypted
 2023-10-14 12:53:26.2838|INFO|Utility.Nlog|User Logged In
+2023-10-16 15:22:48.6909|INFO|Utility.Nlog|Password Decrypted
+2023-10-16 15:22:48.7038|INFO|Utility.Nlog|User Logged In
