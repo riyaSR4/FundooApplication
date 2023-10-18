@@ -65,5 +65,15 @@ namespace FundooManager.Manager
             var result = this.notesRepository.PinNote(noteId, email);
             return result;
         }
+        public bool DeleteNotesForever(int noteId, string email)
+        {
+            var result = this.notesRepository.DeleteNotesForever(noteId, email);
+            return result;
+        }
+        public bool RestoreNotes(int noteId, string email)
+        {
+            var result = this.notesRepository.RestoreNotes(noteId, email);
+            return result;
+        }
     }
 }

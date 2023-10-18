@@ -28,7 +28,19 @@ namespace FundooRepository.Repository
             var data = this.context.Notes.Where(x => x.Id == note.Id && x.EmailId == note.EmailId).FirstOrDefault();
             if(data != null)
             {
-                this.context.Notes.Update(note);
+                data.Id = note.Id;
+                data.EmailId = note.EmailId;
+                data.Title = note.Title;
+                data.Description = note.Description;
+                data.Image = note.Image;
+                data.Colour = note.Colour;
+                data.Reminder = note.Reminder;
+                data.IsArchive = note.IsArchive;
+                data.IsPin = note.IsPin;
+                data.IsTrash = note.IsTrash;
+                data.CreatedDate = note.CreatedDate;
+                data.ModifiedDate = note.ModifiedDate;
+                this.context.Notes.Update(data);
                 this.context.SaveChangesAsync();
                 return note;
             }
@@ -110,6 +122,31 @@ namespace FundooRepository.Repository
                 return result;
             }
             return null;
+        }
+        public bool DeleteNotesForever(int noteId, string email)
+        {
+            var result = this.context.Notes.Where(x => x.Id == noteId && x.EmailId == email).FirstOrDefault();
+            if(result != null)
+            {
+                this.context.Notes.Remove(result);
+                var deleteResult = this.context.SaveChanges();
+                if (deleteResult != 0)
+                    return true;
+            }
+            return false;
+        }
+        public bool RestoreNotes(int noteId, string email)
+        {
+            var result = this.context.Notes.Where(x => x.Id == noteId && x.EmailId == email).FirstOrDefault();
+            if (result != null)
+            {
+                result.IsTrash = false;
+                this.context.Notes.Update(result);
+                var restoreResult = this.context.SaveChanges();
+                if (restoreResult != 0)
+                    return true;
+            }
+            return false;
         }
     }
 }

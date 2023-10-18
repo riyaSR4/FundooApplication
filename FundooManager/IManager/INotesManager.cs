@@ -18,5 +18,7 @@ namespace FundooManager.IManager
         public IEnumerable<Note> GetAllPinnedNotes(string emailId);
         public IEnumerable<Note> GetAllTrashNotes(string email);
         public Note PinNote(int noteId, string email);
+        public bool DeleteNotesForever(int noteId, string email);
+        public bool RestoreNotes(int noteId, string email);
     }
 }

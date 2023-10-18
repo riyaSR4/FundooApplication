@@ -59,3 +59,13 @@
 2023-10-14 12:53:26.2838|INFO|Utility.Nlog|User Logged In
 2023-10-16 15:22:48.6909|INFO|Utility.Nlog|Password Decrypted
 2023-10-16 15:22:48.7038|INFO|Utility.Nlog|User Logged In
+2023-10-18 10:04:50.7890|INFO|Utility.Nlog|Password Decrypted
+2023-10-18 10:04:50.8006|INFO|Utility.Nlog|User Logged In
+2023-10-18 10:12:08.7122|INFO|Utility.Nlog|Password Decrypted
+2023-10-18 10:12:08.7227|INFO|Utility.Nlog|User Logged In
+2023-10-18 10:58:39.0932|INFO|Utility.Nlog|Password Decrypted
+2023-10-18 10:58:39.0932|INFO|Utility.Nlog|User Logged In
+2023-10-18 12:48:45.1788|INFO|Utility.Nlog|Password Decrypted
+2023-10-18 12:48:45.1788|INFO|Utility.Nlog|User Logged In
+2023-10-18 15:32:48.4813|INFO|Utility.Nlog|Password Decrypted
+2023-10-18 15:32:48.4912|INFO|Utility.Nlog|User Logged In
