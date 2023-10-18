@@ -35,6 +35,8 @@ namespace FundooApplication
             services.AddDbContextPool<UserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UserDbConnection")));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserManager, UserManager>();
+            services.AddScoped<INotesManager, NotesManager>();
+            services.AddScoped<INotesRepository, NotesRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo

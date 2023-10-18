@@ -1,6 +1,7 @@
 ﻿using FundooManager.IManager;
 using FundooModel.Notes;
 using FundooModel.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,7 @@ namespace FundooApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class NotesController : ControllerBase
     {
         public readonly INotesManager notesManager;
@@ -188,9 +190,45 @@ namespace FundooApplication.Controllers
                 var result = this.notesManager.PinNote(noteId, email);
                 if (result != null)
                 {
-                    return this.Ok(new { Status = true, Message = "Note Pinned Successful", Data = result });
+                    return this.Ok(new { Status = true, Message = "Note Pinned Successfully", Data = result });
                 }
                 return this.BadRequest(new { Status = false, Message = "Pinning Note Unsuccessful" });
+            }
+            catch (Exception ex)
+            {
+                return this.NotFound(new { Status = false, Message = ex.Message });
+            }
+        }
+        [HttpDelete]
+        [Route("DeleteNotesForever")]
+        public ActionResult DeleteNotesForever(int noteId, string email)
+        {
+            try
+            {
+                var result = this.notesManager.DeleteNotesForever(noteId, email);
+                if (result != null)
+                {
+                    return this.Ok(new { Status = true, Message = "Notes Deleted Forever" });
+                }
+                return this.BadRequest(new { Status = false, Message = "Notes Deletion Unsuccessful" });
+            }
+            catch (Exception ex)
+            {
+                return this.NotFound(new { Status = false, Message = ex.Message });
+            }
+        }
+        [HttpPut]
+        [Route("RestoreNotes")]
+        public ActionResult RestoreNotes(int noteId, string email)
+        {
+            try
+            {
+                var result = this.notesManager.RestoreNotes(noteId, email);
+                if (result != null)
+                {
+                    return this.Ok(new { Status = true, Message = "Notes Restored Successfully", Data = result });
+                }
+                return this.BadRequest(new { Status = false, Message = "Restoring Note Unsuccessful" });
             }
             catch (Exception ex)
             {
