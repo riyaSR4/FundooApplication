@@ -37,6 +37,8 @@ namespace FundooApplication
             services.AddScoped<IUserManager, UserManager>();
             services.AddScoped<INotesManager, NotesManager>();
             services.AddScoped<INotesRepository, NotesRepository>();
+            services.AddScoped<ILabelManager, LabelManager>();
+            services.AddScoped<ILabelRepository, LabelRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
