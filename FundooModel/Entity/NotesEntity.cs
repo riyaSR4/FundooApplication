@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using System.Text.Json.Serialization;
-using FundooModel.User;
 
-namespace FundooModel.Notes
+namespace FundooModel.Entity
 {
-    public class Note
+    public class NotesEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
-        public string EmailId { get; set; }
         [Required]
         public string Title { get; set; }
         public string Description { get; set; }
@@ -26,10 +19,5 @@ namespace FundooModel.Notes
         public bool IsTrash { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
-        //[ForeignKey("Register")]
-        //public int UserId { get; set; }
-
-        //[JsonIgnore]
-        //public virtual Register Register { get; set; }
     }
 }

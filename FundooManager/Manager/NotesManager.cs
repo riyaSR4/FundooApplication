@@ -1,4 +1,5 @@
 ﻿using FundooManager.IManager;
+using FundooModel.Entity;
 using FundooModel.Notes;
 using FundooRepository.IRepository;
 using System;
@@ -73,6 +74,11 @@ namespace FundooManager.Manager
         public bool RestoreNotes(int noteId, string email)
         {
             var result = this.notesRepository.RestoreNotes(noteId, email);
+            return result;
+        }
+        public Note AddNotesToFundoo(NotesEntity note, string emailId)
+        {
+            var result = this.notesRepository.AddNotesToFundoo(note, emailId);
             return result;
         }
     }

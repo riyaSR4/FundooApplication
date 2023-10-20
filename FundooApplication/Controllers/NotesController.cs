@@ -1,10 +1,14 @@
 ﻿using FundooManager.IManager;
+using FundooModel.Entity;
 using FundooModel.Notes;
 using FundooModel.User;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace FundooApplication.Controllers
@@ -234,6 +238,36 @@ namespace FundooApplication.Controllers
             {
                 return this.NotFound(new { Status = false, Message = ex.Message });
             }
+        }
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpPost]
+        [Route("CreateNote")]
+        public ActionResult AddNotes(NotesEntity notesEntity)
+        {
+            try
+            {
+
+                string emailId = GetUserEmail(HttpContext);
+                var result = this.notesManager.AddNotesToFundoo(notesEntity, emailId);
+                if(result != null)
+                {
+                    return this.Ok(new { Status = true, Message = "Notes Created Successfully", Data = result });
+                }
+                return this.BadRequest(new { Status = false, Message = "Creating Note Unsuccessful" });
+            }
+            catch (Exception ex)
+            {
+                return this.NotFound(new { Status = false, Message = ex.Message });
+            }
+        }
+        public static string GetUserEmail(HttpContext httpContext)
+        {
+            if (httpContext.User == null)
+            {
+                return string.Empty;
+            }
+
+            return httpContext.User.Claims.Single(x => x.Type == ClaimTypes.Email).Value;
         }
     }
 }

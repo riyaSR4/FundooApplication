@@ -1,4 +1,5 @@
-﻿using FundooModel.Notes;
+﻿using FundooModel.Entity;
+using FundooModel.Notes;
 using FundooRepository.Context;
 using FundooRepository.IRepository;
 using System;
@@ -147,6 +148,42 @@ namespace FundooRepository.Repository
                     return true;
             }
             return false;
+        }
+        public Note AddNotesToFundoo(NotesEntity note, string emailId)
+        {
+            try
+            {
+                Note noteobj = new Note();
+                var result = this.context.Notes.Where(x => x.EmailId == emailId);
+                if(result != null)
+                {
+                    noteobj.Id = note.Id;
+                    noteobj.EmailId = emailId;
+                    noteobj.Title = note.Title;
+                    noteobj.Description = note.Description;
+                    noteobj.Image = note.Image;
+                    noteobj.Colour = note.Colour;
+                    noteobj.Reminder = note.Reminder;
+                    noteobj.IsArchive = note.IsArchive;
+                    noteobj.IsPin = note.IsPin;
+                    noteobj.IsTrash = note.IsTrash;
+                    noteobj.CreatedDate = note.CreatedDate;
+                    noteobj.ModifiedDate = note.ModifiedDate; 
+                    this.context.Notes.Add(noteobj);
+                    this.context.SaveChanges();
+                }
+                else
+                {
+                    return null;
+                }
+                return null;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

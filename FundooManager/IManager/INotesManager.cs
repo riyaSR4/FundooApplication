@@ -1,4 +1,5 @@
-﻿using FundooModel.Notes;
+﻿using FundooModel.Entity;
+using FundooModel.Notes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,5 +21,6 @@ namespace FundooManager.IManager
         public Note PinNote(int noteId, string email);
         public bool DeleteNotesForever(int noteId, string email);
         public bool RestoreNotes(int noteId, string email);
+        public Note AddNotesToFundoo(NotesEntity note, string emailId);
     }
 }
