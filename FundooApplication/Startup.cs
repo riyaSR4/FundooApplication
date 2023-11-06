@@ -39,6 +39,8 @@ namespace FundooApplication
             services.AddScoped<INotesRepository, NotesRepository>();
             services.AddScoped<ILabelManager, LabelManager>();
             services.AddScoped<ILabelRepository, LabelRepository>();
+            services.AddScoped<ICollaboratorManager, CollaboratorManager>();
+            services.AddScoped<ICollaboratorRepository, CollaboratorRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -87,6 +89,11 @@ namespace FundooApplication
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Key"])) //Configuration["JwtToken:SecretKey"]
                 };
+            });
+            services.AddDistributedRedisCache(Options =>
+            {
+                Options.Configuration = "localhost:6379";
+                Options.InstanceName = "FundooCache";
             });
         }
 

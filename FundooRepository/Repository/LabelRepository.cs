@@ -2,17 +2,20 @@
 using FundooModel.Notes;
 using FundooRepository.Context;
 using FundooRepository.IRepository;
+using NLog.Fluent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utility;
 
 namespace FundooRepository.Repository
 {
     public class LabelRepository : ILabelRepository
     {
         public readonly UserDbContext context;
+        Nlog nlog = new Nlog();
         public LabelRepository(UserDbContext context)
         {
             this.context = context;
@@ -45,11 +48,11 @@ namespace FundooRepository.Repository
                 return null;
             }
         }
-        public IEnumerable<Label> GetAllLabels(string email)
+        public IEnumerable<Label> GetAllLabels(int userId)
         {
             try
             {
-                var result = this.context.Labels.Where(x => x.EmailId == email).AsEnumerable();
+                var result = this.context.Labels.Where(x => x.Id == userId).AsEnumerable();
                 if (result != null)
                     return result;
                 return null;
@@ -78,5 +81,26 @@ namespace FundooRepository.Repository
                 return false;
             }
         }
+        public IEnumerable<Label> GetAllLabelNotes(int userId)
+        {
+            List<Label> list = new List<Label>();
+            var result = this.context.Notes.Where(x => x.Id.Equals(userId)).Join(this.context.Labels,
+                Note => Note.Id,
+                Label => Label.LabelId,
+                (Note, Label) => new Label
+                {
+                    NoteId = Note.Id,
+                    LabelId = Label.LabelId,
+                    LabelName = Label.LabelName,
+                });
+            foreach (var data in result)
+            {
+                list.Add(data);
+            }
+            nlog.LogInfo("Retrieved Sucessful");
+
+            return list;
+        }
+
     }
 }

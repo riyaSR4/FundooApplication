@@ -18,6 +18,6 @@ namespace FundooRepository.Context
         public DbSet<Register> Register { get; set; }
         public DbSet<Note> Notes { get; set; }
         public DbSet<Label> Labels { get; set; }
-
+        public DbSet<Collaborator> Collaborator { get; set; }
     }
 }

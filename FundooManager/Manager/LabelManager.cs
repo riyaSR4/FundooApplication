@@ -26,14 +26,19 @@ namespace FundooManager.Manager
             var result = this.labelRepository.UpdateLabel(label);
             return result;
         }
-        public IEnumerable<Label> GetAllLabels(string email)
+        public IEnumerable<Label> GetAllLabels(int userId)
         {
-            var result = this.labelRepository.GetAllLabels(email);
+            var result = this.labelRepository.GetAllLabels(userId);
             return result;
         }
         public bool DeleteLabel(int LabelId)
         {
             var result = this.labelRepository.DeleteLabel(LabelId);
+            return result;
+        }
+        public IEnumerable<Label> GetAllLabelNotes(int userId)
+        {
+            var result = this.labelRepository.GetAllLabelNotes(userId);
             return result;
         }
     }

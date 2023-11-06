@@ -83,3 +83,65 @@
 2023-10-20 11:28:52.3494|INFO|Utility.Nlog|User Logged In
 2023-10-20 11:33:06.3057|INFO|Utility.Nlog|Password Decrypted
 2023-10-20 11:33:06.3113|INFO|Utility.Nlog|User Logged In
+2023-10-30 17:35:10.3891|ERROR|Utility.Nlog|Error in User Login
+2023-10-31 11:26:09.9466|INFO|Utility.Nlog|Password Encrypted
+2023-10-31 11:26:10.7590|INFO|Utility.Nlog|User Registered
+2023-10-31 11:29:33.4837|INFO|Utility.Nlog|Password Decrypted
+2023-10-31 11:29:33.4837|INFO|Utility.Nlog|User Logged In
+2023-10-31 11:36:34.2321|INFO|Utility.Nlog|Password Encrypted
+2023-10-31 11:36:34.2474|INFO|Utility.Nlog|User Registered
+2023-10-31 11:39:29.4083|INFO|Utility.Nlog|Password Decrypted
+2023-10-31 11:39:29.4083|INFO|Utility.Nlog|User Logged In
+2023-10-31 11:46:47.0235|INFO|Utility.Nlog|Password Decrypted
+2023-10-31 11:46:47.0235|INFO|Utility.Nlog|User Logged In
+2023-10-31 11:51:46.6408|INFO|Utility.Nlog|Password Decrypted
+2023-10-31 11:51:46.6445|INFO|Utility.Nlog|User Logged In
+2023-10-31 12:00:20.1686|INFO|Utility.Nlog|Password Decrypted
+2023-10-31 12:00:20.1686|INFO|Utility.Nlog|User Logged In
+2023-10-31 12:12:39.5068|INFO|Utility.Nlog|Password Decrypted
+2023-10-31 12:12:39.5068|INFO|Utility.Nlog|User Logged In
+2023-10-31 12:13:27.1579|INFO|Utility.Nlog|Added Collaborator Sucessful
+2023-10-31 12:14:31.2678|INFO|Utility.Nlog|Displayed All Collab Notes Successfully
+2023-10-31 12:32:28.7317|INFO|Utility.Nlog|Password Decrypted
+2023-10-31 12:32:28.7355|INFO|Utility.Nlog|User Logged In
+2023-10-31 12:33:24.8796|INFO|Utility.Nlog|Added Collaborator Sucessful
+2023-10-31 12:33:37.0805|INFO|Utility.Nlog|Retrieved Notes  Sucessful
+2023-10-31 12:34:00.9558|INFO|Utility.Nlog|Displayed All Collab Notes Successfully
+2023-10-31 12:38:38.9619|INFO|Utility.Nlog|Deleted Collaborator Sucessful
+2023-10-31 12:41:54.3122|INFO|Utility.Nlog|Retrieved Sucessful
+2023-10-31 12:57:42.8874|INFO|Utility.Nlog|Password Decrypted
+2023-10-31 12:57:42.8915|INFO|Utility.Nlog|User Logged In
+2023-10-31 13:10:27.8918|INFO|Utility.Nlog|Password Decrypted
+2023-10-31 13:10:27.8918|INFO|Utility.Nlog|User Logged In
+2023-10-31 15:56:44.9171|INFO|Utility.Nlog|Password Decrypted
+2023-10-31 15:56:44.9372|INFO|Utility.Nlog|User Logged In
+2023-11-01 11:54:36.3311|INFO|Utility.Nlog|Password Decrypted
+2023-11-01 11:54:36.3311|INFO|Utility.Nlog|User Logged In
+2023-11-01 12:25:22.7341|INFO|Utility.Nlog|Password Decrypted
+2023-11-01 12:25:22.7341|INFO|Utility.Nlog|User Logged In
+2023-11-01 12:48:49.0929|INFO|Utility.Nlog|Password Decrypted
+2023-11-01 12:48:49.0929|INFO|Utility.Nlog|User Logged In
+2023-11-01 13:06:25.3935|INFO|Utility.Nlog|Password Decrypted
+2023-11-01 13:06:25.3973|INFO|Utility.Nlog|User Logged In
+2023-11-01 13:14:37.7952|INFO|Utility.Nlog|Password Decrypted
+2023-11-01 13:14:37.7952|INFO|Utility.Nlog|User Logged In
+2023-11-01 16:41:54.7051|INFO|Utility.Nlog|Password Decrypted
+2023-11-01 16:41:54.7095|INFO|Utility.Nlog|User Logged In
+2023-11-01 17:10:06.0078|INFO|Utility.Nlog|Password Decrypted
+2023-11-01 17:10:06.0078|INFO|Utility.Nlog|User Logged In
+2023-11-01 18:05:26.9570|INFO|Utility.Nlog|Password Decrypted
+2023-11-01 18:05:26.9607|INFO|Utility.Nlog|User Logged In
+2023-11-01 18:15:47.5077|INFO|Utility.Nlog|Password Decrypted
+2023-11-01 18:15:47.5077|INFO|Utility.Nlog|User Logged In
+2023-11-02 10:12:57.9499|INFO|Utility.Nlog|Password Decrypted
+2023-11-02 10:12:57.9499|INFO|Utility.Nlog|User Logged In
+2023-11-02 11:50:24.3269|INFO|Utility.Nlog|Password Decrypted
+2023-11-02 11:50:24.3269|INFO|Utility.Nlog|User Logged In
+2023-11-02 12:10:45.7844|INFO|Utility.Nlog|Password Decrypted
+2023-11-02 12:10:45.7937|INFO|Utility.Nlog|User Logged In
+2023-11-02 12:11:41.3520|INFO|Utility.Nlog|Retrieved Notes  Sucessful
+2023-11-02 12:11:51.4458|INFO|Utility.Nlog|Displayed All Collab Notes Successfully
+2023-11-03 10:05:15.5145|INFO|Utility.Nlog|Password Decrypted
+2023-11-03 10:05:15.5145|INFO|Utility.Nlog|User Logged In
+2023-11-03 13:11:30.4252|INFO|Utility.Nlog|Password Decrypted
+2023-11-03 13:11:30.4252|INFO|Utility.Nlog|User Logged In

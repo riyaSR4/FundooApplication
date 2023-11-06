@@ -55,11 +55,11 @@ namespace FundooApplication.Controllers
         }
         [HttpGet]
         [Route("GetAllLabels")]
-        public async Task<ActionResult> GetAllLabels(string email)
+        public async Task<ActionResult> GetAllLabels(int userId)
         {
             try
             {
-                var result = this.labelManager.GetAllLabels(email);
+                var result = this.labelManager.GetAllLabels(userId);
                 if (result != null)
                 {
                     return this.Ok(new { Status = true, Message = "All Labels Found", data = result });
@@ -87,6 +87,20 @@ namespace FundooApplication.Controllers
             catch (Exception ex)
             {
                 return this.NotFound(new { Status = false, Message = ex.Message });
+            }
+        }
+        [HttpGet]
+        [Route("GetAllLabelNotes")]
+        public ActionResult GetAllLabelNotes(int userId)
+        {
+            try
+            {
+                var result = labelManager.GetAllLabelNotes(userId);
+                return this.Ok(new { Status = true, Message = "GetAll Label Notes Successful", Data = result });
+            }
+            catch (Exception ex)
+            {
+                return this.BadRequest(new { StatusCode = this.BadRequest(), status = false, Message = ex.Message });
             }
         }
     }

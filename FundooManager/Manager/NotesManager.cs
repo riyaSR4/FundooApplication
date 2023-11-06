@@ -2,6 +2,7 @@
 using FundooModel.Entity;
 using FundooModel.Notes;
 using FundooRepository.IRepository;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,14 +22,14 @@ namespace FundooManager.Manager
             var result = this.notesRepository.AddNotes(note);
             return result;
         }
-        public Note ArchiveNotes(int noteId, string email)
+        public Note ArchiveNotes(int noteId, int userId)
         {
-            var result = this.notesRepository.ArchiveNotes(noteId, email);
+            var result = this.notesRepository.ArchiveNotes(noteId, userId);
             return result;
         }
-        public bool DeleteNote(int noteId, string email)
+        public bool DeleteNote(int noteId, int userId)
         {
-            var result = this.notesRepository.DeleteNote(noteId, email);
+            var result = this.notesRepository.DeleteNote(noteId, userId);
             return result;
         }
         public Note EditNotes(Note note)
@@ -36,49 +37,64 @@ namespace FundooManager.Manager
             var result = this.notesRepository.EditNotes(note);
             return result;
         }
-        public bool EmptyTrash(string email)
+        public bool EmptyTrash(int userId)
         {
-            var result = this.notesRepository.EmptyTrash(email);
+            var result = this.notesRepository.EmptyTrash(userId);
             return result;
         }
-        public IEnumerable<Note> GetAllArchievedNotes(string emailId)
+        public IEnumerable<Note> GetAllArchievedNotes(int userId)
         {
-            var result = this.notesRepository.GetAllArchievedNotes(emailId);
+            var result = this.notesRepository.GetAllArchievedNotes(userId);
             return result;
         }
-        public IEnumerable<Note> GetAllNotes(string emailId)
+        public IEnumerable<Note> GetAllNotes(int userId)
         {
-            var result = this.notesRepository.GetAllNotes(emailId);
+            var result = this.notesRepository.GetAllNotes(userId);
             return result;
         }
-        public IEnumerable<Note> GetAllPinnedNotes(string emailId)
+        public IEnumerable<Note> GetAllPinnedNotes(int userId)
         {
-            var result = this.notesRepository.GetAllPinnedNotes(emailId);
+            var result = this.notesRepository.GetAllPinnedNotes(userId);
             return result;
         }
-        public IEnumerable<Note> GetAllTrashNotes(string email)
+        public IEnumerable<Note> GetAllTrashNotes(int userId)
         {
-            var result = this.notesRepository.GetAllTrashNotes(email);
+            var result = this.notesRepository.GetAllTrashNotes(userId);
             return result;
         }
-        public Note PinNote(int noteId, string email)
+        public Note PinNote(int noteId, int userId)
         {
-            var result = this.notesRepository.PinNote(noteId, email);
+            var result = this.notesRepository.PinNote(noteId, userId);
             return result;
         }
-        public bool DeleteNotesForever(int noteId, string email)
+        public bool DeleteNotesForever(int noteId, int userId)
         {
-            var result = this.notesRepository.DeleteNotesForever(noteId, email);
+            var result = this.notesRepository.DeleteNotesForever(noteId, userId);
             return result;
         }
-        public bool RestoreNotes(int noteId, string email)
+        public bool RestoreNotes(int noteId, int userId)
         {
-            var result = this.notesRepository.RestoreNotes(noteId, email);
+            var result = this.notesRepository.RestoreNotes(noteId, userId);
             return result;
         }
-        public Note AddNotesToFundoo(NotesEntity note, string emailId)
+        public string Image(IFormFile file, int noteId)
         {
-            var result = this.notesRepository.AddNotesToFundoo(note, emailId);
+            var result = this.notesRepository.Image(file, noteId);
+            return result;
+        }
+        public Note GetNotebyId(int userId, int noteId)
+        {
+            var result = this.notesRepository.GetNotebyId(userId, noteId);
+            return result;
+        }
+        public IEnumerable<Note> GetRemainder(int userid)
+        {
+            var result = this.notesRepository.GetRemainder(userid);
+            return result;
+        }
+        public Task<int> CreateCopyNote(int userId, int noteId)
+        {
+            var result = this.notesRepository.CreateCopyNote(userId, noteId);
             return result;
         }
     }
